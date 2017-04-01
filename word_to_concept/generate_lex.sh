@@ -15,13 +15,13 @@
 cat TOK_CON.machine | cut -f 3 > tmp.txt
 cat TOK_CON.machine | cut -f 4 >> tmp.txt
 
-# clearing the column
+# cleaning up the data
 cat tmp.txt | tr ' ' '\n' | sed '/^ *$/d' | sort | uniq > tmp2.txt
 
 # deleting the <UNK> (repetition)
 awk '!/<unk>/' tmp2.txt > temp && mv temp tmp2.txt
 
-# numeration the words
+# enumarate words
 COUNTER=1
 while read p; do
 	echo "$p\t$COUNTER";
@@ -30,6 +30,6 @@ done < tmp2.txt > lexicon.txt
 echo "<unk>\t$COUNTER" >> lexicon.txt
 echo "<epsilon>\t0" | cat - lexicon.txt > temp && mv temp lexicon.txt
 
-# deleting the temp files
+# deleting temp files
 rm tmp.txt
 rm tmp2.txt
