@@ -1,6 +1,5 @@
 #!/bin/bash
-
-# Student: Federico Marinelli 187418
+# @author Federico Marinelli
 
 cat NLSPARQL.train.feats.txt |\ 	#getting the data from the train file
 cut -f 1 -f 3 |\	#we need only the first and the third columns
@@ -10,4 +9,4 @@ sed 's/^ *//g' > lexeme.txt		#removing leading space and print the output on fil
 
 while read p; 
 	do echo -e "0\t0\t$p\t0"; 
-done < lexeme.txt > lemmatization.fst #creating the file for the transducer "lemmatization.fst"
+done < lexeme.txt > lemmatization.machine #creating the file for the transducer "lemmatization.fst"
