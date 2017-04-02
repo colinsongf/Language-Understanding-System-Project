@@ -7,11 +7,13 @@
 ## Input: [1] - Path test set
 ##        [2] - Path w2c fst
 ##        [3] - Path LM fst
+##        [4] - Path $lex
 
 #input variables, with default values
-test_set=$(1:-../data/NLSPARQL.test.data}
-w2c_fst=$(2:-tok2con.fst)
-lm=$(3-:../language_model/con.lm)
+test_set=${1:-../data/NLSPARQL.test.data}
+#w2c_fst=${2:-../word_to_concept/word2con.fst}
+#lm=${3-:../language_model/con.lm}
+#lex=${4-:../word_to_concept/../word_to_concept/lexicon.txt}
 
 #setting up the test-set
 cat $test_set | 
@@ -22,22 +24,21 @@ tr '#' '\n' |
 sed 's/^ *//g;s/ *$//g' > tmp  #clean redundant spaces; result on tmp
 
 line_to_write=1
+rm -f print_results
+rm -f toEvaluate.txt
 
-#restoring the file toEvaluate.txt
-if [ -f /toEvaluate.txt]; then
-    rm -f toEvaluate.txt
-fi
 
+echo "[!] Predicting concepts.. May take a while!"
 while read p; 
 do
     #reading a word on the test-set (tmp file)
     #make word's fst
-    #compose the word fst with the w2c fst (already componed with the c)
-    #appling fstshortestpath, fstrmepsilon, fsttopsort
-    #resulting print output on tmp2
-	echo $p | farcompilestrings --symbols=lexicon.txt --unknown_symbol="<unk>" --generate_keys=1 --keep_symbols | farextract --filename_suffix='.fst'
-	fstcompose 1.fst $w2c_fst | fstcompose - $lm | fstshortestpath | fstrmepsilon | fsttopsort |
-	fstprint --isymbols=lexicon.txt --osymbols=lexicon.txt > tmp2
+    #compose the word fst with the w2c fst (already componed with the concepts)
+    #applying fstshortestpath, fstrmepsilon, fsttopsort
+    #print output on tmp2
+	echo $p | farcompilestrings --symbols=../word_to_concept/lexicon.txt --unknown_symbol="<unk>" --generate_keys=1 --keep_symbols | farextract --filename_suffix='.fst'
+	fstcompose 1.fst ../word_to_concept/word2con.fst | fstcompose - ../language_model/con.lm | fstshortestpath | fstrmepsilon | fsttopsort |
+	fstprint --isymbols=../word_to_concept/lexicon.txt --osymbols=../word_to_concept/lexicon.txt >> print_results
 
     #setting up the file for the evaluation
 	while read line;
@@ -54,8 +55,12 @@ do
 	done < tmp2
 done < tmp
 
+./conlleval.pl -d "\t" < toEvaluate.txt
+
 #cleaning up
-rm -f 1.fst
-rm -f tmp
-rm -f tmp2
+rm 1.fst
+rm tmp2
+rm tmp
+
+
 

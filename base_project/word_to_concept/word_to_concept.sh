@@ -5,16 +5,14 @@
 ## -- CREATE FST WORD2CONCEPT --
 ## Input: [1] - file of the training data
 ##        [2] - threshold value to apply in order to apply cut-off smoothing
-##        [3] - the language model file
 
 #input variables, with default values
-TRAIN_SET=${1:-../data/NLSPARQL.train.data}
-TRESHOLD=${2:-"1"}
-LM=${3:-../language_model/con.lm}
+TRESHOLD=${1:-"1"}
+TRAIN_SET=${2:-../data/NLSPARQL.train.data}
+
 
 echo "[TRAINSET PATH] = $TRAIN_SET"
 echo "[THRESHOLD CUT-OFF SMOOTHING] = $TRESHOLD"
-echo "[LM PATH] = $LM"
 
 #Counting the number of concepts
 echo "[] --> Counting the number of concepts..."
@@ -49,7 +47,6 @@ do
 done < TOK_CON.counts > TOK_CON.probs
 
 #printing the file for compiling the transducer
-UNK=$((UNK / $(wc -l < CON.counts)))
 while read p; 
 do 
 	echo "0\t0\t$p"; 
@@ -57,15 +54,18 @@ done < TOK_CON.probs > TOK_CON.machine
 
 while read con count 
 do
-	cost=$(echo "-l($UNK / $count)" | bc -l)
+    n_concepts=$(wc -l < CON.counts)
+    if [ "$TRESHOLD" == "0" ]; then
+        cost=$(echo "-l(1 / $n_concepts)" | bc -l)
+    else
+        UNK=$((UNK / $n_concepts))
+        cost=$(echo "-l($UNK / $count)" | bc -l)
+    fi
 	echo "0\t0\t<unk>\t$con\t$cost"
 done < CON.counts >> TOK_CON.machine
 echo "0" >> TOK_CON.machine
 
-#cleaning up
-rm -f CON.counts
-rm -f TOK_CON.counts
-rm -f TOK_CON.probs
+
 
 #generating the lexicon
 echo "[] --> Generating new lexicon..."
@@ -74,15 +74,16 @@ sh generate_lex.sh
 
 #compiling the fst
 echo "[] --> Compiling fst..."
-fstcompile --isymbols=lexicon.txt --osymbols=lexicon.txt TOK_CON.machine > tok2con.fst
+fstcompile --isymbols=lexicon.txt --osymbols=lexicon.txt TOK_CON.machine > word2con.fst
 
 #drawing the fst
-fstdraw --isymbols=lexicon.txt --osymbols=lexicon.txt tok2con.fst | dot -Teps > tok2con.eps
+fstdraw --isymbols=lexicon.txt --osymbols=lexicon.txt word2con.fst | dot -Teps > word2con.eps
 
-#componing the fst with the Language Model previusly created
-fstcompose tok2con.fst $LM > com_w2c_lm.fst
-echo "[DONE] --> fst generated as com_w2c_lm.fst"
+echo "[DONE]"
 
-
-
+#cleaning up
+rm  CON.counts
+rm  TOK_CON.counts
+rm  TOK_CON.probs
+rm  TOK_CON.machine
 
