@@ -15,6 +15,8 @@ test_set=${1:-../data/NLSPARQL.test.data}
 #lm=${3-:../language_model/con.lm}
 #lex=${4-:../word_to_concept/../word_to_concept/lexicon.txt}
 
+cd "${0%/*}"
+
 #setting up the test-set
 cat $test_set | 
 cut -f 1 |
@@ -24,9 +26,6 @@ tr '#' '\n' |
 sed 's/^ *//g;s/ *$//g' > tmp  #clean redundant spaces; result on tmp
 
 line_to_write=1
-rm -f print_results
-rm -f toEvaluate.txt
-
 
 echo "[!] Predicting concepts.. May take a while!"
 while read p; 
@@ -37,25 +36,11 @@ do
     #applying fstshortestpath, fstrmepsilon, fsttopsort
     #print output on tmp2
 	echo $p | farcompilestrings --symbols=../word_to_concept/lexicon.txt --unknown_symbol="<unk>" --generate_keys=1 --keep_symbols | farextract --filename_suffix='.fst'
-	fstcompose 1.fst ../word_to_concept/word2con.fst | fstcompose - ../language_model/con.lm | fstshortestpath | fstrmepsilon | fsttopsort |
-	fstprint --isymbols=../word_to_concept/lexicon.txt --osymbols=../word_to_concept/lexicon.txt >> print_results
+	fstcompose 1.fst ../word_to_concept/word2con.fst | fstcompose - ../language_model/con.lm | fstshortestpath | fstrmepsilon | fsttopsort > tmp2
+	fstprint --isymbols=../word_to_concept/lexicon.txt --osymbols=../word_to_concept/lexicon.txt < tmp2
 
     #setting up the file for the evaluation
-	while read line;
-	do
-        N=$(echo $line | wc -w) #counting the number of "colums" (if > 3 : not considered)
-		if [ "$N" -gt "3" ]; then
-            predicted=$(echo $line | awk '{print$4}')   #take the predicted value
-            take_line=$(sed "${line_to_write}q;d" $test_set)   #take a line nth line on test_set file
-            echo "$take_line\t$predicted" >> toEvaluate.txt  #printing the file for the evaluation
-		else 
-            echo "\n" >> toEvaluate.txt
-		fi
-		line_to_write=$((line_to_write + 1))
-	done < tmp2
 done < tmp
-
-./conlleval.pl -d "\t" < toEvaluate.txt
 
 #cleaning up
 rm 1.fst

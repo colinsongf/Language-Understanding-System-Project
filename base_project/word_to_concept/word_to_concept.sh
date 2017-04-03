@@ -10,6 +10,7 @@
 TRESHOLD=${1:-"1"}
 TRAIN_SET=${2:-../data/NLSPARQL.train.data}
 
+cd "${0%/*}"
 
 echo "[TRAINSET PATH] = $TRAIN_SET"
 echo "[THRESHOLD CUT-OFF SMOOTHING] = $TRESHOLD"
@@ -29,7 +30,6 @@ sed '/^ *$/d' |     #remove empty lines
 sort | uniq -c |	#unique list with counts
 sed 's/^ *//g' | 	#remove leading space
 awk '{OFS="\t"; print $2,$3,$1}' > TOK_CON.counts #swap columns & use tab for separator
-
 
 #Calculating the probabilities P(wi|ci) using the previous file
 #I'm using a cut-off smoothing with threshold
@@ -65,12 +65,9 @@ do
 done < CON.counts >> TOK_CON.machine
 echo "0" >> TOK_CON.machine
 
-
-
 #generating the lexicon
 echo "[] --> Generating new lexicon..."
 sh generate_lex.sh
-
 
 #compiling the fst
 echo "[] --> Compiling fst..."
@@ -78,8 +75,6 @@ fstcompile --isymbols=lexicon.txt --osymbols=lexicon.txt TOK_CON.machine > word2
 
 #drawing the fst
 fstdraw --isymbols=lexicon.txt --osymbols=lexicon.txt word2con.fst | dot -Teps > word2con.eps
-
-echo "[DONE]"
 
 #cleaning up
 rm  CON.counts

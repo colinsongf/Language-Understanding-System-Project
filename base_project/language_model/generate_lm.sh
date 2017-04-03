@@ -1,9 +1,12 @@
 #!/bin/bash
 ## Project: LUS Spring project
 ## @author Federico Marinelli - federico.marinelli@studenti.unitn.it
+order=${1:-"3"}
+method=${2:-"witten_bell"}
+data=${3:-../data/NLSPARQL.train.data}
+lex=${4:-../word_to_concept/lexicon.txt}
 
-data=${1:-../data/NLSPARQL.train.data}
-lex=${2:-../word_to_concept/lexicon.txt}
+cd "${0%/*}"
 
 cat $data |
 cut -f 2 | 
@@ -13,8 +16,8 @@ tr '#' '\n' |
 sed 's/^ *//g;s/ *$//g' > data.txt
 
 farcompilestrings --symbols=$lex --unknown_symbol='<unk>' data.txt > data.far
-ngramcount --order=3 --require_symbols=false data.far > con.cnt
-ngrammake --method=witten_bell con.cnt > con.lm
+ngramcount --order=$order --require_symbols=false data.far > con.cnt
+ngrammake --method=$method con.cnt > con.lm
 
 rm data.far
 rm con.cnt

@@ -12,6 +12,8 @@
 
 
 # taking the 3th and 4th columns, merge them in a single column
+cd $(dirname $(realpath $0))
+
 cat TOK_CON.machine | cut -f 3 > tmp.txt
 cat TOK_CON.machine | cut -f 4 >> tmp.txt
 
