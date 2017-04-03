@@ -8,6 +8,10 @@ lex=${4:-../word_to_concept/lexicon.txt}
 
 cd "${0%/*}"
 
+echo "[] --> Computing LM.."
+echo "[ ORDER ] = $order"
+echo "[ METHOD ] = $method"
+
 cat $data |
 cut -f 2 | 
 sed 's/^ *$/#/g' | 

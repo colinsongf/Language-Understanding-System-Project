@@ -27,7 +27,6 @@ sed 's/^ *//g;s/ *$//g' > tmp  #clean redundant spaces; result on tmp
 
 line_to_write=1
 
-echo "[!] Predicting concepts.. May take a while!"
 while read p; 
 do
     #reading a word on the test-set (tmp file)

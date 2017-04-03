@@ -12,11 +12,11 @@ TRAIN_SET=${2:-../data/NLSPARQL.train.data}
 
 cd "${0%/*}"
 
+echo "[] --> Computing word2concept fst.."
 echo "[TRAINSET PATH] = $TRAIN_SET"
 echo "[THRESHOLD CUT-OFF SMOOTHING] = $TRESHOLD"
 
 #Counting the number of concepts
-echo "[] --> Counting the number of concepts..."
 cat $TRAIN_SET | cut -f 2 |
 sed '/^ *$/d' |     #remove empty lines
 sort | uniq -c | 	#unique list with counts
@@ -24,7 +24,6 @@ sed 's/^ *//g' | 	#remove leading space
 awk '{OFS="\t"; print $2,$1}' > CON.counts #swap columns & use tab for separator
 
 #Counting the number of words + concepts
-echo "[] --> Counting the number of concept+word..."
 cat $TRAIN_SET  |
 sed '/^ *$/d' |     #remove empty lines
 sort | uniq -c |	#unique list with counts
@@ -33,7 +32,6 @@ awk '{OFS="\t"; print $2,$3,$1}' > TOK_CON.counts #swap columns & use tab for se
 
 #Calculating the probabilities P(wi|ci) using the previous file
 #I'm using a cut-off smoothing with threshold
-echo "[] --> Computing probabilities..."
 UNK=0
 while read token con count 
 do 
@@ -66,11 +64,9 @@ done < CON.counts >> TOK_CON.machine
 echo "0" >> TOK_CON.machine
 
 #generating the lexicon
-echo "[] --> Generating new lexicon..."
 sh generate_lex.sh
 
 #compiling the fst
-echo "[] --> Compiling fst..."
 fstcompile --isymbols=lexicon.txt --osymbols=lexicon.txt TOK_CON.machine > word2con.fst
 
 #drawing the fst
