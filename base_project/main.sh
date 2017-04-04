@@ -2,8 +2,8 @@
 ## Project: LUS Spring project
 ## @author Federico Marinelli - federico.marinelli@studenti.unitn.it
 
-order=${1:-"3"}
-method=${2:-"witten_bell"}
+order=${1:-"2"}
+method=${2:-"kneser_ney"}
 treshold=${3:-"0"}
 
 sh word_to_concept/word_to_concept.sh $treshold

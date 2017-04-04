@@ -11,3 +11,7 @@ Everything that contains 'train' is from training, 'test' for testing
 
 
 Deadline: 21 april
+
+Office Hours:
+Molveno -> Wednesday 5 14-16
+Toblino -> Thureday 6 10-12, 14-16
