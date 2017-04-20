@@ -1,4 +1,4 @@
-# Sequence Labelling using Stochastic Final State Transducers (SFSTs)
+# Sequence Labelling using Stochastic Final State Transducers
 
 University of Trento - *Language Understanding Systems Course* - Federico Marinelli
 
@@ -21,11 +21,11 @@ cd LUS-Spring-Project
 ./main.sh
 ```
 
-### Parameters main.sh
+#### Parameters main.sh
 
-* Order - The size of the n-grams for the language model
+* **Order** - The size of the n-grams for the language model
 
-* Method - The smoothing algorithm to use. (i.e. kneser-ney, witten-bell, unsmoothed, absolute)
+* **Method** - The smoothing algorithm to use. (i.e. kneser-ney, witten-bell, unsmoothed, absolute)
 
 
 This is an example:
@@ -36,8 +36,6 @@ This is an example:
 ## Author
 
 * **Federico Marinelli** - [e-mail](mailto:federico.marinelli@studio.unitn.it)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
