@@ -1,6 +1,6 @@
 # Sequence Labelling using Stochastic Final State Transducers
 
-University of Trento - *Language Understanding Systems Course* - Federico Marinelli
+University of Trento - *Language Understanding Systems Course* - Federico Marinelli (187419)
 
 The extraction of ﬂat concepts out of a given word sequence is usually one of the ﬁrst steps in building a spoken language understanding (SLU) or dialogue system. This project aims to evaluate the performance of labelling a word sequence using Stochastic Final State Transducers, adopting different features, smoothing algorithms, and other techniques in order to improve the baseline performances.
 
@@ -34,10 +34,10 @@ This is an example:
 ./main.sh 3 kneser_ney
 ```
 
-### Folder Description
+### Folders Description
 
 #### /data
- Into this folder I put all the train-sets that I've used during this project. The file NLSPARQL.train.data cointained into data/ is the one that gave the best results. In the sub-folders is possible to find all the train-sets that I used and gave me worse performances. For more details take a look at the report.
+ Into this folder I put all the train-sets that I've used during this project. The file NLSPARQL.train.data cointained into /data is the one that gave the best results. In the sub-folders is possible to find all the train-sets that I used and gave me worse performances. For more details take a look at the report.
 
 #### /word_to_concept
 
@@ -47,12 +47,13 @@ Into this folder is possible to find all the files and scripts related to the li
 
 This folder contais the script that generates the Language Model.
 
+#### /evaluate
+
+This folder contais the script used for the evaluation.
+In particular we used a third-part script named conlleval for the evaluation.
+
 
 ## Author
 
-* **Federico Marinelli** - [e-mail](mailto:federico.marinelli@studio.unitn.it)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+* **Federico Marinelli** - [federico.marinelli@studio.unitn.it](mailto:federico.marinelli@studio.unitn.it)
 
