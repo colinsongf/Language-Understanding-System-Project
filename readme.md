@@ -14,7 +14,7 @@ In order to use the code developed into this project you need the following tool
 
 ## Running the system
 
-It's possible to run the system, with defaults setting, as follow:
+It's possible to run the system, with defaults settings, as follow:
  ```
 git clone https://github.com/feedmari/LUS-Spring-Project.git
 cd LUS-Spring-Project
