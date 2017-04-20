@@ -1,4 +1,0 @@
-[29-03-2017]
---> Created transducer for lemmatization PATH=/Project/Lemmatization
---> Created lexicon from NLSPARQL.train.data
-
