@@ -5,14 +5,12 @@
 ## -- MAIN.SH --
 ## Input: [1] - order size
 ##        [2] - method
-##        [3] - some text for the saving
 ##        [2] - threshold for noise-cutoff smoothing
 
 #init variables with defaults values
 order=${1:-"4"}
 method=${2:-"kneser_ney"}
-text=${3:-""}
-treshold=${4:-"0"}
+treshold=${3:-"0"}
 
 #running word_to_concept script
 sh word_to_concept/word_to_concept.sh $treshold
