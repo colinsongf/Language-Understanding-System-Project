@@ -55,5 +55,5 @@ In particular we used a third-part script named conlleval for the evaluation.
 
 ## Author
 
-* **Federico Marinelli** - [federico.marinelli@studio.unitn.it](mailto:federico.marinelli@studio.unitn.it)
+* **Federico Marinelli** - [federico.marinelli@studenti.unitn.it](mailto:federico.marinelli@studenti.unitn.it)
 
