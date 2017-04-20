@@ -27,6 +27,10 @@ python main.py
 #print the result on the console
 cat results
 
+#clening up
+rm new_col3
+rm col3.txt
+rm col12.txt
 
 
 
