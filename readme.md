@@ -21,17 +21,32 @@ cd LUS-Spring-Project
 ./main.sh
 ```
 
-#### Parameters main.sh
+Parameters main.sh:
 
 * **Order** - The size of the n-grams for the language model
 
 * **Method** - The smoothing algorithm to use. (i.e. kneser-ney, witten-bell, unsmoothed, absolute)
 
+* **Frequency Cut-Off** - If 0 it's not active. If > 1 then it corresponds to the frequency cut-off treshold applyed into the word_to_concept machine.
 
 This is an example:
 ```
 ./main.sh 3 kneser_ney
 ```
+
+### Folder Description
+
+#### /data
+ Into this folder I put all the train-sets that I've used during this project. The file NLSPARQL.train.data cointained into data/ is the one that gave the best results. In the sub-folders is possible to find all the train-sets that I used and gave me worse performances. For more details take a look at the report.
+
+#### /word_to_concept
+
+Into this folder is possible to find all the files and scripts related to the likelihood machine.
+
+#### /language_model
+
+This folder contais the script that generates the Language Model.
+
 
 ## Author
 
