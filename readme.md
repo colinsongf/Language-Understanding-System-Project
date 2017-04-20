@@ -1,6 +1,6 @@
 # Sequence Labelling using Stochastic Final State Transducers (SFSTs)
 
-University of Trento - Language Understanding Systems Course
+University of Trento - *Language Understanding Systems Course* - Federico Marinelli
 
 The extraction of ﬂat concepts out of a given word sequence is usually one of the ﬁrst steps in building a spoken language understanding (SLU) or dialogue system. This project aims to evaluate the performance of labelling a word sequence using Stochastic Final State Transducers, adopting different features, smoothing algorithms, and other techniques in order to improve the baseline performances.
 
@@ -15,12 +15,11 @@ In order to use the code developed into this project you need the following tool
 ## Running the system
 
 It's possible to run the system, with defaults setting, as follow:
- 
-'''
+ ```
 git clone https://github.com/feedmari/LUS-Spring-Project.git
 cd LUS-Spring-Project
 ./main.sh
-'''
+```
 
 ### Parameters main.sh
 
@@ -30,9 +29,9 @@ cd LUS-Spring-Project
 
 
 This is an example:
-'''
+```
 ./main.sh 3 kneser_ney
-'''
+```
 
 ## Author
 
