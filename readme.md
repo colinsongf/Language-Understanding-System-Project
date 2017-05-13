@@ -10,8 +10,11 @@ This project aims to evaluate the performance of labelling a word sequence using
 
 For detailed information check the following links:
 
-* [SFSTs](https://github.com/feedmari/Language-Understanding-System-Project/tree/master/mid_term_project) - Spring Project - [Report](https://github.com/feedmari/Language-Understanding-System-Project/blob/master/mid_term_project/report.pdf)
-* [CRF](https://github.com/feedmari/Language-Understanding-System-Project/tree/master/final_project/crf_final) - Final Project - [Report](https://github.com/feedmari/Language-Understanding-System-Project/blob/master/mid_term_project/report.pdf)
+* [Stochastic final state transducers](https://github.com/feedmari/Language-Understanding-System-Project/tree/master/mid_term_project) - Spring Project - [Report](https://github.com/feedmari/Language-Understanding-System-Project/blob/master/mid_term_project/report.pdf)
+
+* [Conditional Random Fields](https://github.com/feedmari/Language-Understanding-System-Project/tree/master/final_project/crf_final) - Final Project - [Report]()
+
+* [Recursive Neural Networks](https://github.com/feedmari/Language-Understanding-System-Project/tree/master/final_project/rnn) - Final Project - [Report]()
 
 
 ## Author
