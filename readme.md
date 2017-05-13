@@ -8,13 +8,16 @@ This project aims to evaluate the performance of labelling a word sequence using
 
 ## Description
 
-For detailed information check the following links:
+### Spring Project
 
-* [Stochastic final state transducers](https://github.com/feedmari/Language-Understanding-System-Project/tree/master/mid_term_project) - Spring Project - [Report](https://github.com/feedmari/Language-Understanding-System-Project/blob/master/mid_term_project/report.pdf)
+* [Stochastic final state transducers](https://github.com/feedmari/Language-Understanding-System-Project/tree/master/mid_term_project) - [Report](https://github.com/feedmari/Language-Understanding-System-Project/blob/master/mid_term_project/report.pdf)
 
-* [Conditional Random Fields](https://github.com/feedmari/Language-Understanding-System-Project/tree/master/final_project/crf_final) - Final Project - [Report]()
 
-* [Recursive Neural Networks](https://github.com/feedmari/Language-Understanding-System-Project/tree/master/final_project/rnn) - Final Project - [Report]()
+### Final Project
+
+* [Conditional Random Fields](https://github.com/feedmari/Language-Understanding-System-Project/tree/master/final_project/crf_final) -  [Report]()
+
+* [Recursive Neural Networks](https://github.com/feedmari/Language-Understanding-System-Project/tree/master/final_project/rnn) - [Report]()
 
 
 ## Author
