@@ -8,12 +8,12 @@ This project aims to evaluate the performance of labelling a word sequence using
 
 ## Description
 
-### Spring Project
+#### Spring Project
 
 * [Stochastic final state transducers](https://github.com/feedmari/Language-Understanding-System-Project/tree/master/mid_term_project) - [Report](https://github.com/feedmari/Language-Understanding-System-Project/blob/master/mid_term_project/report.pdf)
 
 
-### Final Project
+#### Final Project
 
 * [Conditional Random Fields](https://github.com/feedmari/Language-Understanding-System-Project/tree/master/final_project/crf_final) -  [Report]()
 
