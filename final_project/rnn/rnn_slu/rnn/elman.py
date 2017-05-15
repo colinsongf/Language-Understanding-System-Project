@@ -52,9 +52,8 @@ class model(object):
         lr = T.scalar('lr')
         nll = -T.log(p_y_given_x_lastword)[y]
         gradients = T.grad( nll, self.params )
-        #updates = OrderedDict(( p, p-lr*g ) for p, g in zip( self.params , gradients))
+        updates = OrderedDict(( p, p-lr*g ) for p, g in zip( self.params , gradients))
 
-        updates = OrderedDict((p, T.cast(p - lr * g, dtype=theano.config.floatX)) for p, g in zip(self.params, gradients))
         
         # theano functions
         self.classify = theano.function(inputs=[idxs], outputs=y_pred)
