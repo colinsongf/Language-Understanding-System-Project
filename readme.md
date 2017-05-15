@@ -2,8 +2,6 @@
 
 University of Trento - Federico Marinelli (187419)
 
-The extraction of ﬂat concepts out of a given word sequence is usually one of the ﬁrst steps in building a spoken language understanding (SLU) or dialogue system.
-
 This project aims to evaluate the performance of labelling a word sequence using generative and discriminative algorithms. In particular adopting Stochastic Final State Transducers during the mid-term project, Conditional Random Fields and Recursive Neural Networks during the final project.
 
 ## Description
