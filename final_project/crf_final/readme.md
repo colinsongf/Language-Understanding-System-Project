@@ -6,7 +6,7 @@ University of Trento - *Language Understanding Systems Course* - Federico Marine
 
 In order to use the code developed into this project you need the following tools:
 
-* [CRF++](https://taku910.github.io/crfpp/) - CRF++ is a simple, customizable, and open source implementation of Conditional Random Fields (CRFs) for segmenting/labeling sequential data.
+* [CRF++](https://taku910.github.io/crfpp/) - is a simple, customizable, and open source implementation of Conditional Random Fields (CRFs) for segmenting/labeling sequential data.
 
 ## Running the system
 
