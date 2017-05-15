@@ -12,9 +12,7 @@ This code allows to get state-of-the-art results and a significant improvement
 (+1% in F1-score) with respect to the results presented in the paper.
 
 In order to reproduce the results, make sure Theano is installed and the
-repository is in your `PYTHONPATH`, e.g run the command
-
-`export PYTHONPATH=/path/where/rnn_slu/is:$PYTHONPATH`.
+repository is in your `PYTHONPATH`.
 
 
 Configuration file:
@@ -46,9 +44,9 @@ Train and Test Jordan RNN:
 sh startup_jordan.sh
 ```
 
-Train and Test Jordan RNN:
+Train and Test LSTM RNN:
 --------------------
-
+It will automatically use the best configuration settings that I found for them.
 ```
 sh startup_lstm.sh
 ```
