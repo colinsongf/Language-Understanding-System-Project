@@ -21,10 +21,6 @@ class model(object):
         cs :: word window context size 
         '''
         # parameters of the model
-        #xuxinfeng
-        #if isEmb:
-        #self.emb = theano.shared(numpy.load('emb.npy').astype(theano.config.floatX))
-        #else:
         self.emb = theano.shared(0.2 * numpy.random.uniform(-1.0, 1.0,\
                    (ne+1, de)).astype(theano.config.floatX)) # add one for PADDING at the end
 
@@ -65,6 +61,7 @@ class model(object):
         x = self.emb[idxs].reshape((idxs.shape[0], de*cs))
         y = T.iscalar('y') # label
 
+        #hidden layer computation (modified)
         def recurrence(x_t, h_tm1, c_tm1):
             i_t = sigma(theano.dot(x_t, self.W_xi) + theano.dot(h_tm1, self.W_hi) + theano.dot(c_tm1, self.W_ci) + self.b_i)
             f_t = sigma(theano.dot(x_t, self.W_xf) + theano.dot(h_tm1, self.W_hf) + theano.dot(c_tm1, self.W_cf) + self.b_f)
@@ -95,12 +92,12 @@ class model(object):
 
         self.normalize = theano.function(inputs=[], updates={self.emb: self.emb/T.sqrt((self.emb**2).sum(axis=1)).dimshuffle(0,'x')})
 
-    #xuxinfeng save model
+    #save model
     def save(self, folder):
         for param, name in zip(self.params, self.names):
             numpy.save(os.path.join(folder, name + '.npy'), param.get_value())
 
-    #xuxinfeng  load model
+    #load model (edited)
     def load(self, folder):
         print('loading the params in folder...')
         updates = OrderedDict((param, theano.shared(numpy.load(os.path.join(folder, name + '.npy')).astype(theano.config.floatX))) for param, name in zip( self.params , self.names))
