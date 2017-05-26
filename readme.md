@@ -16,7 +16,7 @@ This project aims to evaluate the performance of labelling a word sequence using
 
 * [Conditional Random Fields](https://github.com/feedmari/Language-Understanding-System-Project/tree/master/final_project/crf_final) 
 
-* [Recursive Neural Networks](https://github.com/feedmari/Language-Understanding-System-Project/tree/master/final_project/rnn) 
+* [Recurrent Neural Networks](https://github.com/feedmari/Language-Understanding-System-Project/tree/master/final_project/rnn) 
 
 * [Report](https://github.com/feedmari/Language-Understanding-System-Project/blob/master/final_project/report_final.pdf)
 
