@@ -1,4 +1,4 @@
-### Recurisive Neural Networks (RNNs) for Spoken Language Understanding
+### Recurrent Neural Networks (RNNs) for Spoken Language Understanding
 
 Based on the papers:
 
