@@ -2,7 +2,7 @@
 
 University of Trento - Federico Marinelli (187419)
 
-This project aims to evaluate the performance of labelling a word sequence using generative and discriminative algorithms. In particular adopting Stochastic Final State Transducers during the mid-term project, Conditional Random Fields and Recursive Neural Networks during the final project.
+This project aims to evaluate the performance of labelling a word sequence using generative and discriminative algorithms. In particular adopting Stochastic Final State Transducers during the mid-term project, Conditional Random Fields and Recurrent Neural Networks during the final project.
 
 ## Description
 
