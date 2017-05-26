@@ -35,7 +35,7 @@ Different template that I used during the training phases.
 This folder contais the script used to modify the dataset.
 
 #### /feature_script
-This folder contais different scripts used to run CRF++ with less features and they gave me worst performances.
+This folder contais different scripts used to run CRF++ with other features and they gave me worst performances.
 
 
 
