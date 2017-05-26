@@ -21,6 +21,3 @@ This project aims to evaluate the performance of labelling a word sequence using
 * [Report](https://github.com/feedmari/Language-Understanding-System-Project/blob/master/final_project/report_final.pdf)
 
 
-## Author
-
-* **Federico Marinelli** - [federico.marinelli@studenti.unitn.it](mailto:federico.marinelli@studenti.unitn.it)
