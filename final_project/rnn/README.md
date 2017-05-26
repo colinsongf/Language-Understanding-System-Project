@@ -1,4 +1,4 @@
-### Code for RNN and Spoken Language Understanding
+### Recurisive Neural Networks (RNNs) for Spoken Language Understanding
 
 Based on the papers:
 
