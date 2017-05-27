@@ -12,7 +12,7 @@ In order to use the code developed into this project you need the following tool
 
 It's possible to run the system, with the best settings, as follow:
  ```
-https://github.com/feedmari/Language-Understanding-System-Project.git
+git clone https://github.com/feedmari/Language-Understanding-System-Project.git
 cd Language-Understanding-System-Project/final_project/crf_final/
 ./crf_startup_best.sh
 ```
